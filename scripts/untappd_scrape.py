@@ -15,6 +15,7 @@ description = []
 
 for url in urls:
 
+    #retrieve and parse the html response via a BeautifulSoup object
     response = get(url, verify = True, headers = {'User-agent': 'your bot 0.1'})  #needs useragent string to avoid 429 response
     html_soup = BeautifulSoup(response.text, 'html.parser')
     sleep(randint(8,15))  #so that requests don't get blocked... mimics human behavior
@@ -32,6 +33,7 @@ for url in urls:
     date_added.append(date)
     description.append(beer_description)
 
+#turn the parsed output into a dataframe
 untappd_df = pd.DataFrame({
     'rating': rating,
     'num_ratings': num_ratings,
@@ -39,11 +41,3 @@ untappd_df = pd.DataFrame({
     'date_added': date_added,
     'description': description
 })
-
-untappd_df.head()
-
-#print(rating)
-#print(untappd_url)
-#print(num_ratings)
-#print(date_added)
-#print(description)
