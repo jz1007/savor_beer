@@ -4,8 +4,10 @@ from time import sleep
 from random import randint
 import pandas as pd
 
-#url list should be the actual beer's page
-urls = ['https://untappd.com/b/boston-beer-company-samuel-adams-black-harbor-stout/885012/','https://untappd.com/b/cigar-city-brewing-across-the-alley/3000068','https://untappd.com/b/perennial-artisan-ales-abraxas/77322']  ##add the list of URLs from excel file
+#grab urls to scrape from csv
+urls_df = pd.read_csv('<csv>', usecols = ['<colname>'])
+urls = urls_df.url.tolist()  #url list should be the actual beer's page
+## sample urls #urls = ['https://untappd.com/b/boston-beer-company-samuel-adams-black-harbor-stout/885012/','https://untappd.com/b/cigar-city-brewing-across-the-alley/3000068','https://untappd.com/b/perennial-artisan-ales-abraxas/77322']  ##add the list of URLs from excel file
 
 untappd_url = []
 rating = []
