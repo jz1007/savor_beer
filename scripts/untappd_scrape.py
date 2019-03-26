@@ -15,8 +15,14 @@ num_ratings = []
 date_added = []
 description = []
 
+count = 0
+
 for url in urls:
 
+    #count iteration
+    count += 1
+    print('Loading beer '+str(count)+' of '+str(len(urls)))
+    
     #retrieve and parse the html response via a BeautifulSoup object
     response = get(url, verify = True, headers = {'User-agent': 'your bot 0.1'})  #needs useragent string to avoid 429 response
     html_soup = BeautifulSoup(response.text, 'html.parser')
@@ -24,7 +30,7 @@ for url in urls:
 
     #html parse
     rate = str(html_soup.find('span', class_ = 'num').text).replace('(','').replace(')','').strip()  #rating score
-    num_rate = int(str(html_soup.find('p', class_ = 'raters').text).replace(' Ratings','').replace(',','').strip())  #number of ratings
+    num_rate = int(str(html_soup.find('p', class_ = 'raters').text).replace(' Ratings','').replace(',','').replace(' Rating','').strip())  #number of ratings
     date = str(html_soup.find('p', class_ = 'date').text).replace('Added ','').strip() #date added to untapped
     beer_description = str(html_soup.find('div', class_ = 'beer-descrption-read-less').text).replace(' Show Less','').strip()   #long description of beer
 
