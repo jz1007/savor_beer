@@ -35,8 +35,6 @@ for container in containers:
         beer_abv.append(new_clean_beer[4].replace('% ABV',''))
         beer_style.append(new_clean_beer[-5].replace('(','').replace(')',''))
 
-##this is awful - should just make a df with a row per beer here
-
 beer_df = pd.DataFrame({
     'brewery': brewery_name,
     'beer': beer_name,
