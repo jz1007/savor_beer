@@ -31,9 +31,6 @@ for container in containers:
     loc = str(container.find('div').text).strip()
     brewery_location.append(loc)
 
-
-##this is awful - should just make a df with a row per beer here
-
 pairing_df = pd.DataFrame({
     'brewery': brewery_name,
     'location': brewery_location
