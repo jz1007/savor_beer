@@ -45,4 +45,4 @@ beer_df = pd.DataFrame({
 beer_df.head(200)
 beer_df.info()
 
-beer_df.to_csv('/Users/jzavilla/Documents/Personal/python/beers.csv', header = True)
+beer_df.to_csv('/path/to/files/beer.csv', header = True)
