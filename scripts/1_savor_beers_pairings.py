@@ -36,7 +36,6 @@ pairing_df = pd.DataFrame({
     'location': brewery_location
 })
 
-test_df2 = pairing_df
-total_df = pd.merge(test_df2, test_df, how = 'left', on='brewery') #add location to the beer df
+total_df = pd.merge(pairing_df, beer_df, how = 'left', on='brewery') #add location to the beer df
 
 total_df.to_csv('/Users/jzavilla/Documents/Personal/python/beers_new.csv', header = True, index = False)
