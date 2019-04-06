@@ -43,7 +43,7 @@ for url in urls:
     description.append(beer_description)
     ibu.append(beer_ibu)
 
-    print('Complete.'
+    print('Complete.')
 
 untappd_df = pd.DataFrame({
     'rating': rating,
